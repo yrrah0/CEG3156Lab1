@@ -1,0 +1,12 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY fpAdd_Controller IS
+  port(  : IN ; 
+     : OUT );
+END fpAdd_Controller;
+
+ARCHITECTURE struct OF fpAdd_Controller IS
+BEGIN
+  
+END struct;

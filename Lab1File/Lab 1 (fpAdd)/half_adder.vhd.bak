@@ -1,0 +1,15 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY halfadder IS
+  port( A,B : IN std_logic; 
+   C,S  : OUT std_logic);
+END ;
+
+ARCHITECTURE struct OF halfadder IS
+BEGIN
+
+	S <= A XOR B;
+	C <= A AND B;
+  
+END struct;

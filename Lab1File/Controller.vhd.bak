@@ -1,0 +1,13 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY Controller IS
+  port( E_difference : IN std_logic_vector(6 DOWNTO 0);
+    MantissaMSB, MantissaZ,  Clk, Reset_not: IN std_logic; 
+     : OUT );
+END ;
+
+ARCHITECTURE struct OF  IS
+BEGIN
+  
+END struct;

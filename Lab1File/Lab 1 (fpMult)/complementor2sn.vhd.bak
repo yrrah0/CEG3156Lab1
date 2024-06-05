@@ -1,0 +1,30 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY twoscomplementor IS
+	generic( bit_size : integer := 18);
+  port( X : IN std_logic_vector(bit_size-1 DOWNTO 0); 
+	 EN : IN std_logic;
+    Y : OUT std_logic_vector(bit_size-1 DOWNTO 0));
+END ;
+
+ARCHITECTURE struct OF twoscomplementor IS
+
+	COMPONENT halfadder
+	  port( A,B : IN std_logic; 
+		C,S  : OUT std_logic);
+	END component;
+	
+	SIGNAL temp: std_logic_vector(bit_size-1 downto 0);
+	SIGNAL carrytemp: std_logic_vector(bit_size downto 0);
+	
+BEGIN
+	
+	carrytemp(0) <= EN;
+	generateadder: 
+		for i in 0 to bit_size-1 generate
+			halfadderX : halfadder port map
+			(X(i) XOR EN ,carrytemp(i), carrytemp(i+1), Y(i));
+		end generate generateadder;
+
+END struct;

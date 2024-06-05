@@ -1,0 +1,32 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+
+ENTITY smallALU IS
+  port( e1, e2 : IN std_logic_vector(6 downto 0); 
+	res : OUT std_logic_vector(7 downto 0);
+    Z, N, V : OUT std_logic);
+END smallALU;
+
+ARCHITECTURE struct OF smallALU IS
+	COMPONENT full_adder
+	  port( A, B, Cin : IN std_logic; 
+    S, Cout : OUT std_logic);
+	END component;
+	
+
+	SIGNAL carrytemp: std_logic_vector(8 downto 0);
+BEGIN
+
+	carrytemp(0) <= '1';
+	generateadder:
+		for i in 0 to 6 generate
+			fulladderX : full_adder port map
+			(e1(i) , e2(i) XOR '1', carrytemp(i),res(i), carrytemp(i+1));
+		end generate generateadder;
+		
+	fa7: port map('0', '1', carrytemp(7), res(7), carrytemp(8));
+
+  N <= res(7);
+  V <= carrytemp(8) xor carrytemp(7);
+END struct;

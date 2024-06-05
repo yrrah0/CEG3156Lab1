@@ -1,0 +1,14 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY BIG_ALU IS
+  port( A, B : IN STD_LOGIC_VECTOR(17 DOWNTO 0); 
+    invert_A, invert_B : IN STD_LOGIC;
+    S : OUT STD_LOGIC_VECTOR(17 DOWNTO 0);
+	 V : OUT STD_LOGIC);
+END BIG_ALU;
+
+ARCHITECTURE struct OF BIG_ALU IS
+BEGIN
+  
+END struct;
